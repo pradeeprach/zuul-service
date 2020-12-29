@@ -1,0 +1,23 @@
+server:
+  port: 9998
+  
+spring:
+  application:
+    name: zuul-service
+
+eureka:
+  client:
+    service-url: 
+        defaultZone: http://localhost:10000/eureka
+
+zuul:
+  routes:
+    user-service:
+      path: /user-api/**
+      service-id: user-service
+    book-service:
+      path: /book-api/**
+      service-id: book-service
+    library-service:
+      path: /library-api/**
+      service-id: library-service
